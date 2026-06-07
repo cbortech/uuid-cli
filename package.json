@@ -1,0 +1,59 @@
+{
+  "name": "@cbortech/uuid-cli",
+  "version": "0.1.0",
+  "description": "UUID generation and inspection CLI tool (RFC 9562)",
+  "keywords": [
+    "uuid",
+    "uuidv7",
+    "rfc9562",
+    "rfc4122",
+    "cli"
+  ],
+  "homepage": "https://github.com/cbortech/uuid-cli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbortech/uuid-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cbortech/uuid-cli/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
+  "author": "Yasuhiro Kudo <ykudo@ykudo.org>",
+  "type": "module",
+  "bin": {
+    "uuid": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "vite build --config vite.cli.config.ts",
+    "prepack": "npm run build",
+    "watch": "vite build --watch --config vite.cli.config.ts",
+    "typecheck": "tsc -p tsconfig.cli.json --noEmit",
+    "clean": "node -e \"['dist','coverage'].forEach(d=>require('fs').rmSync(d,{recursive:true,force:true}))\"",
+    "test": "npm run build && vitest run",
+    "test:node": "npm run build && vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "npm run build && vitest run --coverage",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@cbortech/uuid": "^0.1.0",
+    "@types/node": "^24.13.0",
+    "@vitest/coverage-v8": "^4.1.8",
+    "@vitest/ui": "^4.1.8",
+    "prettier": "^3.8.3",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.16",
+    "vitest": "^4.1.8"
+  }
+}
