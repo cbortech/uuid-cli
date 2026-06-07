@@ -1,6 +1,6 @@
 {
   "name": "@cbortech/uuid-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "UUID generation and inspection CLI tool (RFC 9562)",
   "keywords": [
     "uuid",
@@ -47,7 +47,7 @@
     "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "@cbortech/uuid": "^0.1.0",
+    "@cbortech/uuid": "^0.1.1",
     "@types/node": "^24.13.0",
     "@vitest/coverage-v8": "^4.1.8",
     "@vitest/ui": "^4.1.8",
