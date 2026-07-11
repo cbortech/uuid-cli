@@ -1,6 +1,6 @@
 {
   "name": "@cbortech/uuid-cli",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "UUID generation and inspection CLI tool (RFC 9562)",
   "keywords": [
     "uuid",
@@ -9,13 +9,13 @@
     "rfc4122",
     "cli"
   ],
-  "homepage": "https://github.com/cbortech/uuid-cli",
+  "homepage": "https://github.com/yasuhirokudo/uuid-cli",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cbortech/uuid-cli.git"
+    "url": "git+https://github.com/yasuhirokudo/uuid-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/cbortech/uuid-cli/issues"
+    "url": "https://github.com/yasuhirokudo/uuid-cli/issues"
   },
   "publishConfig": {
     "access": "public"
@@ -24,7 +24,7 @@
   "author": "Yasuhiro Kudo <ykudo@ykudo.org>",
   "type": "module",
   "bin": {
-    "uuid": "dist/cli.js"
+    "uuid": "dist/uuid.mjs"
   },
   "files": [
     "dist"
@@ -33,27 +33,29 @@
     "node": ">=20"
   },
   "scripts": {
-    "build": "vite build --config vite.cli.config.ts",
+    "build": "node build.mjs",
     "prepack": "npm run build",
-    "watch": "vite build --watch --config vite.cli.config.ts",
-    "typecheck": "tsc -p tsconfig.cli.json --noEmit",
-    "clean": "node -e \"['dist','coverage'].forEach(d=>require('fs').rmSync(d,{recursive:true,force:true}))\"",
-    "test": "npm run build && vitest run",
-    "test:node": "npm run build && vitest run",
+    "typecheck": "tsc --noEmit",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "pretest": "npm run build",
+    "test": "vitest run",
     "test:watch": "vitest",
-    "test:ui": "vitest --ui",
-    "test:coverage": "npm run build && vitest run --coverage",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
+  "dependencies": {
+    "@cbortech/uuid": "^0.1.2",
+    "citty": "^0.2.2"
+  },
   "devDependencies": {
-    "@cbortech/uuid": "^0.1.1",
-    "@types/node": "^24.13.0",
-    "@vitest/coverage-v8": "^4.1.8",
-    "@vitest/ui": "^4.1.8",
-    "prettier": "^3.8.3",
+    "@types/node": "^24.13.3",
+    "esbuild": "^0.25.12",
+    "prettier": "^3.9.4",
     "typescript": "^5.9.3",
-    "vite": "^8.0.16",
-    "vitest": "^4.1.8"
+    "vitest": "^4.1.10"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.1": true
   }
 }
