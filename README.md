@@ -22,26 +22,26 @@ uuid [command] [options]
 
 ### Commands
 
-| Command | Description |
-|---|---|
-| `generate` (default) | Generate a UUID |
-| `parse <uuid>` | Show all UUID fields |
-| `inspect <uuid>` | Show version, variant, and timestamp |
-| `validate <uuid>` | Validate a UUID string |
+| Command              | Description                          |
+| -------------------- | ------------------------------------ |
+| `generate` (default) | Generate a UUID                      |
+| `parse <uuid>`       | Show all UUID fields                 |
+| `inspect <uuid>`     | Show version, variant, and timestamp |
+| `validate <uuid>`    | Validate a UUID string               |
 
 A bare UUID argument without a subcommand is treated as `parse`.
 
 ### Options
 
-| Option | Description |
-|---|---|
-| `-v4` | UUID v4 — random (default) |
-| `-v7` | UUID v7 — time-ordered random |
-| `-n <count>` | Number of UUIDs to generate |
-| `--json` | Output as JSON |
-| `--no-color` | Disable color output |
-| `-h, --help` | Show help |
-| `-v, --version` | Show version |
+| Option          | Description                   |
+| --------------- | ----------------------------- |
+| `-v4`           | UUID v4 — random (default)    |
+| `-v7`           | UUID v7 — time-ordered random |
+| `-n <count>`    | Number of UUIDs to generate   |
+| `--json`        | Output as JSON                |
+| `--no-color`    | Disable color output          |
+| `-h, --help`    | Show help                     |
+| `-v, --version` | Show version                  |
 
 ## Examples
 
